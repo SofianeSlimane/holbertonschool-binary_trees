@@ -7,33 +7,26 @@
  * Return: The balance of the binary tree, or 0 or height.
  */
 
+int height(const binary_tree_t *tree)
+{
+        if (tree == NULL)
+                return -1;
+        else
+        {
+                int left_height = height(tree->left);
+                int right_height = height(tree->right);
+
+                if (left_height > right_height)
+                        return (left_height + 1);
+                else
+                        return (right_height + 1);
+        }
+}
+
 int binary_tree_balance(const binary_tree_t *tree)
 {
         if (tree == NULL)
-                return (0);
+                return 0;
         else
                 return height(tree->left) - height(tree->right);
-}
-
-int main(void)
-{
-        binary_tree_t *root = malloc(sizeof(binary_tree_t));
-        root->n = 1;
-        root->left = malloc(sizeof(binary_tree_t));
-        root->left->n = 2;
-        root->left->left = NULL;
-        root->left->right = NULL;
-        root->right = malloc(sizeof(binary_tree_t));
-        root->right->n = 3;
-        root->right->left = NULL;
-        root->right->right = NULL;
-
-        int balance = binary_tree_balance(root);
-        printf("Balance factor: %d\n", balance);
-
-        free(root->left);
-        free(root->right);
-        free(root);
-
-        return (0);
 }
