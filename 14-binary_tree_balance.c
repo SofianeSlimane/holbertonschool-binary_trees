@@ -1,10 +1,9 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_balance - give tree binary balance.
- * height - A pointer to the @height of the binary tree and give values.
+ * height - give a values of height.
  * @tree: A pointer to the node of the binary tree.
- * Return: The balance of the binary tree, or 0 or height.
+ * Return: The binary tree, -1 if is null.
  */
 
 int height(const binary_tree_t *tree)
@@ -22,6 +21,14 @@ int height(const binary_tree_t *tree)
 			return (right_height + 1);
 	}
 }
+
+/**
+ * binary_tree_balance - give tree binary balance.
+ * height A pointer to the binary tree and give values.
+ * @tree: A pointer to the node of the binary tree.
+ * Return: The balance of the binary tree, or 0.
+ */
+
 
 int binary_tree_balance(const binary_tree_t *tree)
 {
