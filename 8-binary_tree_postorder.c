@@ -1,17 +1,18 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_postorder - postorder a node
- * @tree: tree to postorder and check
+ * binary_tree_postorder - postorder a node in binary tree.
+ * @tree: tree to postorder and check.
+ * @func: to call a function for tree.
  * Return: (NOTHING)
  */
 
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
-        if (tree == NULL || func == NULL)
-                return;
+	if (tree == NULL || func == NULL)
+		return;
 
-        binary_tree_postorder(tree->left, func);
-        binary_tree_postorder(tree->right, func);
-        func(tree->n);
+	binary_tree_postorder(tree->left, func);
+	binary_tree_postorder(tree->right, func);
+	func(tree->n);
 }
