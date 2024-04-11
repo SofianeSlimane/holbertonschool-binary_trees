@@ -10,6 +10,7 @@ int height(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (-1);
+
 	else
 	{
 		int left_height = height(tree->left);
@@ -23,10 +24,10 @@ int height(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_balance - give tree binary balance.
- * @height: A pointer to the binary tree and give values.
+ * binary_tree_balance - give tree and call pointer.
+ * height - function to call tree left and right of the node.
  * @tree: A pointer to the node of the binary tree.
- * Return: The balance of the binary tree, or 0 .
+ * Return: The balance of the binary tree, or 0..
  */
 
 int binary_tree_balance(const binary_tree_t *tree)
