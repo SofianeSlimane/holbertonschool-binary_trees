@@ -70,7 +70,7 @@ int _pow(int a, int b)
 {
 	int i;
 
-	for (i = 1; i <= b; i++)
+	for (i = 0; i <= b; i++)
 	{
 		a *= 2;
 	}
@@ -83,15 +83,17 @@ int _pow(int a, int b)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int h1 = height(tree->left), h2 = height(tree->right),
-	bf = h1 - h2;
+int h1 = height(tree->left), h2 = height(tree->right),
+	bf = h1 - h2, is_full = binary_tree_is_full(tree),
+	n_nodes = get_number_of_nodes(tree) + 1,
+	pow = _pow(2, h1) - 1;
 
 	if (tree == NULL)
 		return (0);
 
-	else if (!(bf) && binary_tree_is_full(tree)
-				&& get_number_of_nodes(tree) + 1 == (_pow(2, h1 + h2)) - 1)
+	else if (!(bf) && is_full && n_nodes == pow)
 		return (1);
 	else
 		return (0);
 }
+
