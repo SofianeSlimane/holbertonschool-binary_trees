@@ -86,12 +86,13 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 int h1 = height(tree->left), h2 = height(tree->right),
 	bf = h1 - h2, is_full = binary_tree_is_full(tree),
 	n_nodes = get_number_of_nodes(tree) + 1,
-	pow = _pow(2, h1) - 1;
+	pow = _pow(2, h1) - 1,
+	is_single_node = (tree->left == NULL && tree->right == NULL);
 
 	if (tree == NULL)
 		return (0);
 
-	else if (!(bf) && is_full && n_nodes == pow)
+	else if ((!(bf) && is_full && n_nodes == pow) || (is_single_node))
 		return (1);
 	else
 		return (0);
